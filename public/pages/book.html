@@ -1,0 +1,63 @@
+<div class="row">
+<div class="clearfix" style="padding-bottom: 5%"></div>
+    <div class="col-md-8 col-sm-8 col-xs-8 col-xs-offset-2 col-md-offset-2 col-sm-offset-2 bg-white">
+        <button ng-click="back()" type="button" style="margin-top: 10px;border-radius: 17px;"class="btn btn-default btn-sm pull-right">
+                <span class="glyphicon glyphicon-circle-arrow-left" style="color: #333;"></span> Back
+        </button>
+        <br>
+        <div style="margin: 30px 0;border: 1px solid #e2dede;padding: 20px;">
+           <p style="font-size: 30px;border-bottom: 2px solid #e2dede;    margin-bottom: 20px;"> {{title}}</p>
+           <div class="alert alert-success" ng-if="showMsg">
+                 <span ng-if="title=='Add Book'"><strong>Success!</strong> New book has been added.</span>
+                 <span ng-if="title=='Update Book'"><strong>Success!</strong> The book has been updated.</span>
+            </div>
+           <form name="form">
+                <table style="text-align: right;width: 94%;margin-bottom: 35px;"> 
+                    <tr class="row" ng-class="{'error':form.name.$touched && form.name.$invalid}">
+                        <td class="col-md-5">Name *</td><td style="padding: 0;"  class="col-md-7"><input ng-model="name" name="name" class="col-md-12  form-control control" required  type="text">
+                        <p style="text-align: left" ng-show="form.name.$touched && form.name.$invalid">Name is required</p>
+                        </td> 
+                        
+                    </tr>
+                    <tr class="row" ng-class="{'error':form.cat.$touched && form.cat.$invalid}">
+                        
+                        <td class="col-md-5">Category *</td  style="padding: 0;" class="col-md-7"><td><input ng-model="cat" name="cat" class="col-md-12 form-control  control"   required type="text">
+                        <p style="text-align: left" ng-show="form.cat.$touched && form.cat.$invalid">Category is required</p>
+                        </td>
+                    </tr>
+                    <tr class="row" ng-class="{'error':form.price.$touched && form.price.$invalid}">
+                        <td class="col-md-5">Price *</td><td  style="padding: 0;" class="col-md-7"><input ng-model="price" name="price" class="col-md-12  form-control control"  required  type="text">
+                        <p style="text-align: left" ng-show="form.price.$touched && form.price.$invalid">Price is required</p>
+                        </td>
+                    </tr>
+                    <tr class="row" ng-class="{'error':form.desc.$touched && form.desc.$invalid}">
+                        <td class="col-md-5">Description *</td style="padding: 0;" class="col-md-7"><td><textarea ng-model="desc" name="desc" style="resize: vertical;" required class="col-md-12 form-control  control"></textarea>
+                        <p style="text-align: left" ng-show="form.desc.$touched && form.desc.$invalid">Description is required</p>
+                        </td>
+                    </tr>
+                </table>
+           </form>
+                <p style="border-bottom: 2px solid #e2dede;"></p>
+                <button type="button" class="btn btn-danger" ng-click="back();">Cancel</button>
+                <button type="button" class="btn btn-success" ng-click="submit()" ng-disabled="!(name && cat && price && desc)">Submit</button>
+          
+        </div>
+
+    <!--
+    Create your Add and Edit Forms here.
+    Validate the form fields in angular
+    Show validation errors under each of the fields in realtime
+    Enable the submit/update button only if the form data is valid 
+    -->
+
+    </div>
+</div>
+<div class="clearfix"></div>
+<style>
+.control{
+    margin-bottom: 10px;
+}
+.error{
+    color: red;
+}
+</style>

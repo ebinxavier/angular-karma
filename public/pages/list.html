@@ -1,0 +1,112 @@
+
+
+
+    <div class="col-md-12 col-xs-12 col-sm-12" style="background-color: white">
+        <div class="row x_title">
+            <!-- add Book button-->
+
+            <!--
+
+             Write Your Code Here To Show the Add Book button as shown in requirement document.
+
+               upon cliking this button app should navigate to create page(create state)
+
+             -->
+
+            <!--End Of add Book button-->
+            <div class="col-md-6" >
+
+                <h3>Book List </h3>
+
+                <!--
+
+                Write Your Code Here To Show alert messages as shown in requirement document.
+
+               -->
+            </div>
+            <button ui-sref="create" type="button" style="margin-top: 10px;border-radius: 17px;"class="btn btn-default btn-sm pull-right">
+                <span class="glyphicon glyphicon-plus-sign" style="color: #333;"></span> Add Book
+            </button>
+            <div class="clearfix"></div>
+        </div>
+               
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+
+                <!--Write Your Code Here To List The Book Categories as shown in requirement document-->
+               
+                        <div >
+                            <div style="margin-top: -1px;cursor: pointer" class="col-md-12 cat" ng-class="{'cat-selected':(currentCat==i)}" ng-repeat="i in categories" ng-click="changeCategory(i)" >                               
+                                {{i}}
+                            </div>
+                        </div>
+
+                
+
+            </div>
+            <div class="col-md-9">
+                     <div class="input-group add-on">
+                        <input class="form-control" placeholder="Search for..." ng-model="search" name="srch-term" id="srch-term" type="text">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                        </div>
+                    <table class="table-bordered">
+                        <tr>
+                            <th class="col-md-2">Name</th>
+                            <th class="col-md-3">Category</th>
+                            <th class="col-md-4">Description</th>
+                            <th class="col-md-1">Price</th>
+                            <th class="col-md-2">Controls</th>
+                        </tr>
+                        <tr ng-repeat="i in table | filter:search">
+                            <td> {{i.name}}</td>
+                            <td> {{i.category}}</td>
+                            <td> {{i.description}}</td>
+                            <td> {{i.price}}</td>
+                            <td> 
+                                <a style="cursor:pointer" ng-click="updateBook(i._id)"> <span class="glyphicon glyphicon-edit"></span> Edit</a>
+                                <br>
+                                <!-- data-toggle="modal" data-target="#myModal"-->
+                                <a style="cursor:pointer;color: #c30b08" ng-click="removeBook(i._id)"> <span class="glyphicon glyphicon-trash"></span>Remove</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            <!--
+
+            Write Your Code here to list the Books as shown in requirement document
+
+
+            -->
+
+        </div>
+
+        <!--Modal Content for Remove-->
+
+        <!--
+
+        Writ your code for modal content here. this modal shuould open for confirmation when remove button clicked
+
+        -->
+        <!--End of Modal Content for Remove-->
+
+    </div>
+
+</div>
+<style>
+ tr,td,th{
+     padding: 5px;
+ }
+ .cat{
+    border: 1px solid rgba(128, 128, 128, 0.52);
+    padding: 10px;
+ }
+ .cat-selected{
+    background-color: #00a65a;
+    color: white;
+ }
+</style>
+
